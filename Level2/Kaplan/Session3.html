@@ -1,0 +1,151 @@
+﻿<h3>SS3 R9</h3>
+<h1>Correlation and Regression</h1>
+<p align="center"><img align="center" src="https://tex.s2cms.ru/svg/%20COV%20%3D%20%5Cfrac%20%7B%5Csum_%7Bt%3D1%7D%5E%7Bn%7D%20(X_%7Bt%2C1%7D%20-%20%5Cbar%20X_1)%20(X_%7Bt%2C2%7D%20-%20%5Cbar%20X_2)%7D%7Bn-1%7D%0A" alt=" COV = \frac {\sum_{t=1}^{n} (X_{t,1} - \bar X_1) (X_{t,2} - \bar X_2)}{n-1}
+" /></p>
+<p align="center"><img align="center" src="https://tex.s2cms.ru/svg/%20corr%20%3D%20%5Cfrac%20%7Bcov_%7B1%2C2%7D%7D%7Bs_1s_2%7D" alt=" corr = \frac {cov_{1,2}}{s_1s_2}" /></p>
+<h3>Limitations to Correlation Analysis</h3>
+<ul>
+<li>Outliers</li>
+<li>Spurious correlation</li>
+<li>Nonlinear dependency</li>
+</ul>
+<h3>Correlation Test: 2-tailed t-test</h3>
+<ul>
+<li>
+<p align="center"><img align="center" src="https://tex.s2cms.ru/svg/H_0%3A%20correlation%20%3D%200" alt="H_0: correlation = 0" /></p>
+</li>
+<li>
+<p>Sample correlation</p>
+</li>
+<li>
+<p>n pairs of observations</p>
+</li>
+<li>
+<p>Test statistic:</p>
+</li>
+</ul>
+<p align="center"><img align="center" src="https://tex.s2cms.ru/svg/%20t%20%3D%20%5Cfrac%20%7Br%20%5Csqrt%7Bn-2%7D%20%7D%7B%5Csqrt%20%7B%201-r%5E2%7D%7D" alt=" t = \frac {r \sqrt{n-2} }{\sqrt { 1-r^2}}" /></p>
+<p><img src="https://tex.s2cms.ru/svg/t%5Cuparrow" alt="t\uparrow" />, if <img src="https://tex.s2cms.ru/svg/r%5Cuparrow" alt="r\uparrow" /> and/or <img src="https://tex.s2cms.ru/svg/n%5Cuparrow" alt="n\uparrow" /></p>
+<p>Reject $H_0$ if |computed t| &gt; | critical t|</p>
+<h3>Linear Regression</h3>
+<ul>
+<li>Assumptions:
+<ul>
+<li>Linear relations between X and y</li>
+<li>Independent variable uncorrelated with error term</li>
+<li>Expected value of error term is zero</li>
+<li>Variance of the error term is constant</li>
+<li>Error term is independently distributed</li>
+<li>Error term is normally distributed</li>
+</ul>
+</li>
+</ul>
+<h3>Regression Coefficient t-test</h3>
+<ul>
+<li>A test of statistical significance (slope $\ne$ 0)</li>
+<li></li>
+</ul>
+<p><img src="https://tex.s2cms.ru/svg/%20%0AH_0%3A%20b_i%20%3D%200%20" alt=" 
+H_0: b_i = 0 " /> vs. <img src="https://tex.s2cms.ru/svg/H_a%20%3A%20b_i%20%5Cne%200%0A" alt="H_a : b_i \ne 0
+" /></p>
+<ul>
+<li>Use t-test with (n-k-1) DoF.</li>
+</ul>
+<p align="center"><img align="center" src="https://tex.s2cms.ru/svg/%20t_%7Bb_i%7D%20%3D%20%5Cfrac%20%7B%5Chat%20%7Bb_i%7D%20-%20b_i%7D%20%7BS_%7Bb_i%7D%7D%20%5C%5C%0A%3D%20%5Cfrac%20%7Bestimate%20-%20pypothesized%7D%20%7B%20std%5C%20error%20%7D%20%5C%5C%0A%3D%20%5Cfrac%20%7B%5Chat%20%7Bb_i%7D%20-%200%7D%20%7Bs_%7Bb_i%7D%7D%20%5C%5C%0A%3D%20%5Cfrac%20%7Bslope%7D%20%7Bstd%5C%20error%7D%20%0A" alt=" t_{b_i} = \frac {\hat {b_i} - b_i} {S_{b_i}} \\
+= \frac {estimate - pypothesized} { std\ error } \\
+= \frac {\hat {b_i} - 0} {s_{b_i}} \\
+= \frac {slope} {std\ error} 
+" /></p>
+<ul>
+<li>
+<p>Standard Error: <img src="https://tex.s2cms.ru/svg/%20%5Csigma%20%2F%20%5Csqrt%7Bn%7D" alt=" \sigma / \sqrt{n}" /></p>
+</li>
+<li>
+<p>Confidence Interval of estimated <img src="https://tex.s2cms.ru/svg/%5Cbeta" alt="\beta" /> :
+<img src="https://tex.s2cms.ru/svg/%20%5Chat%7Bb%7D%20%5Cpm%20" alt=" \hat{b} \pm " /> critical t <img src="https://tex.s2cms.ru/svg/%20%5Ctimes%20s_%7Bb_i%7D" alt=" \times s_{b_i}" /></p>
+</li>
+<li>
+<p>Confidence Interval of Predicted Y</p>
+</li>
+</ul>
+<p align="center"><img align="center" src="https://tex.s2cms.ru/svg/%20%5Chat%20%7BY%7D%20%5Cpm%20(t_c%20%5Ctimes%20std%5C%20error%20%5C%20of%5C%20forecast)%20%5C%5C%0As_f%5E2%20%3D%20SEE%5E2%20%5CBig%5B%201%20%2B%20%5Cfrac%7B1%7D%7Bn%7D%20%2B%20%5Cfrac%20%7B(X%20-%20%5Cbar%20%7BX%7D)%5E2%7D%20%7B(n-1)S_x%5E2%7D%20%5CBig%5D%0A" alt=" \hat {Y} \pm (t_c \times std\ error \ of\ forecast) \\
+s_f^2 = SEE^2 \Big[ 1 + \frac{1}{n} + \frac {(X - \bar {X})^2} {(n-1)S_x^2} \Big]
+" /></p>
+<ul>
+<li>
+<p>Critical t is 2-tailed with n-2 DoF</p>
+</li>
+<li>
+<p>For large samples, <img src="https://tex.s2cms.ru/svg/s_f" alt="s_f" /> can be approximated by SEE.</p>
+</li>
+</ul>
+<h3>ANOVA (analysis of Variance)</h3>
+<ul>
+<li>Total Variation = Explained + unexplained</li>
+</ul>
+<p align="center"><img align="center" src="https://tex.s2cms.ru/svg/%20SST%20%3D%20RSS%20%2B%20SSE%20" alt=" SST = RSS + SSE " /></p>
+<ul>
+<li>
+<p>Sum of squared total:</p>
+</li>
+<li>
+<p>Residual sum of squares: <img src="https://tex.s2cms.ru/svg/%5Csum%20(%5Chat%20%7BY_i%7D%20-%20%5Cbar%20%7BY%7D)%5E2" alt="\sum (\hat {Y_i} - \bar {Y})^2" /></p>
+</li>
+<li>
+<p>Sum of squared errors: <img src="https://tex.s2cms.ru/svg/%5Csum%20(Y_i%20-%20%5Chat%7BY_i%7D)%20%5E2" alt="\sum (Y_i - \hat{Y_i}) ^2" /></p>
+</li>
+<li>
+<p><strong>MSR</strong> Mean squared regression: RSS / k</p>
+</li>
+<li>
+<p><strong>MSE</strong> Mean squared error: SSE / (n-k-1)</p>
+</li>
+<li>
+<p>Degree of Freedom for SST is n-1: n-k-1 + k</p>
+</li>
+</ul>
+<h3>SEE</h3>
+<ul>
+<li>SEE measures accuracy of predicted values from regression equation. SEE $\downarrow$, Model Accuracy $\uparrow$.</li>
+</ul>
+<p align="center"><img align="center" src="https://tex.s2cms.ru/svg/%20SEE%20%3D%20%5Csqrt%20%7BSSE%7D%20%7Bn-k-1%7D%20%3D%20%5Csqrt%20%7BMSE%7D%20%3D%20%5Csigma_%7B%5Cepsilon%7D%20" alt=" SEE = \sqrt {SSE} {n-k-1} = \sqrt {MSE} = \sigma_{\epsilon} " /></p>
+<h3>the coefficient of determination (<img src="https://tex.s2cms.ru/svg/R%5E2" alt="R^2" />)</h3>
+<ul>
+<li>
+<p><img src="https://tex.s2cms.ru/svg/R%5E2" alt="R^2" /> measures percentage of total variation in dependent variable explained by independent variables.</p>
+</li>
+<li>
+<p>from 0 to 1</p>
+</li>
+<li>
+<p>measures of the goodness of fit</p>
+</li>
+</ul>
+<p align="center"><img align="center" src="https://tex.s2cms.ru/svg/%20R%5E2%20%3D%20RSS%20%2F%20SST" alt=" R^2 = RSS / SST" /></p>
+<ul>
+<li>For simple linear regression (k=1), <img src="https://tex.s2cms.ru/svg/%20R%5E2%20%3D%20(r_%7BXY%7D)%5E2" alt=" R^2 = (r_{XY})^2" /></li>
+</ul>
+<h3>Limitations of Regression</h3>
+<ul>
+<li>Relationships change over time (parameter instability)</li>
+<li>Public knowledge of relationships eliminate usefulness</li>
+<li>Assumption violations:</li>
+</ul>
+<h3>SS3 R10</h3>
+<h1>Multiple Regression</h1>
+<h3>Example: Hedge Fund Returns</h3>
+<ul>
+<li>Small Cap stocks (WSC)</li>
+<li>High-yield bonds (HYB)</li>
+<li>Emerging markets (IFC)</li>
+</ul>
+<p>The t-test shows p-value for HYB is 0.137. Cannot reject <img src="https://tex.s2cms.ru/svg/H_0" alt="H_0" />. HFR not influeced by HYB.</p>
+<h3>p-Values</h3>
+<ul>
+<li>
+<p>The probability that the computed value is greater than the critical value, <img src="https://tex.s2cms.ru/svg/p%20%3C%20%5Calpha" alt="p &lt; \alpha" /></p>
+</li>
+<li>
+<p>the smallest significance level at which we can reject <img src="https://tex.s2cms.ru/svg/H_0" alt="H_0" /></p>
+</li>
+</ul>

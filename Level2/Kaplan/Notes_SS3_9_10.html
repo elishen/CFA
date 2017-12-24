@@ -139,7 +139,7 @@ s_f^2 = SEE^2 \Big[ 1 + \frac{1}{n} + \frac {(X - \bar {X})^2} {(n-1)S_x^2} \Big
 <li>High-yield bonds (HYB)</li>
 <li>Emerging markets (IFC)</li>
 </ul>
-<p>The t-test shows p-value for HYB is 0.137. Cannot reject <img src="https://tex.s2cms.ru/svg/H_0" alt="H_0" />. HFR not influeced by HYB.</p>
+<p>The t-test shows p-value for HYB is 0.137. Cannot reject <img src="https://tex.s2cms.ru/svg/H_0" alt="H_0" />. HFR not influenced by HYB.</p>
 <h3>p-Values</h3>
 <ul>
 <li>
@@ -148,4 +148,216 @@ s_f^2 = SEE^2 \Big[ 1 + \frac{1}{n} + \frac {(X - \bar {X})^2} {(n-1)S_x^2} \Big
 <li>
 <p>the smallest significance level at which we can reject <img src="https://tex.s2cms.ru/svg/H_0" alt="H_0" /></p>
 </li>
+<li>
+<p>special values:</p>
+</li>
+</ul>
+<p><img src="https://tex.s2cms.ru/svg/%20%5Calpha%20%3D%205%25%20" alt=" \alpha = 5% " />, 2-tails, and large sample, <img src="https://tex.s2cms.ru/svg/%5CRightarrow" alt="\Rightarrow" /> critical t value = 2.</p>
+<h3>Assumptions of Multiple Regression (Additional)</h3>
+<ul>
+<li>No exact linear relationship among X’s</li>
+</ul>
+<h3>F-Statistics</h3>
+<ul>
+<li>Test whether <strong>any</strong> of the independent variables explain variation in the dependent variable, i.e. test of overall model significance)</li>
+</ul>
+<p><img src="https://tex.s2cms.ru/svg/H_0" alt="H_0" />: All slope coefficients = 0;
+<img src="https://tex.s2cms.ru/svg/H_A" alt="H_A" />: At least one slope coefficient <img src="https://tex.s2cms.ru/svg/%5Cne" alt="\ne" /> 0</p>
+<ul>
+<li>One-tailed test</li>
+<li>Critical F determined by <strong>2 sets of Degrees of Freedom</strong> (numerator and denominator)</li>
+</ul>
+<p align="center"><img align="center" src="https://tex.s2cms.ru/svg/%0AF%20%3D%20%5Cfrac%20%7BRSS%2Fk%7D%20%7BSSE%2F(n-k-1)%7D%20%3D%20%5Cfrac%20%7BMSR%7D%7BMSE%7D%0A" alt="
+F = \frac {RSS/k} {SSE/(n-k-1)} = \frac {MSR}{MSE}
+" /></p>
+<h3>Adjusted <img src="https://tex.s2cms.ru/svg/R%5E2" alt="R^2" /></h3>
+<ul>
+<li>
+<p>unadjusted <img src="https://tex.s2cms.ru/svg/R%5E2" alt="R^2" /> increases when new variables are added</p>
+</li>
+<li>
+<p>Adjusted <img src="https://tex.s2cms.ru/svg/R%5E2" alt="R^2" /> applies a penalty factor to reflect quality of added variables</p>
+</li>
+</ul>
+<p align="center"><img align="center" src="https://tex.s2cms.ru/svg/%0AR%5E2%20%3D%201%20-%20%5CBig%5B%20%5CBig(%5Cfrac%20%7Bn-1%7D%7Bn-k-1%7D%20%5CBig)%20%5Ctimes%20(1-R%5E2)%20%5CBig%5D%20%0A" alt="
+R^2 = 1 - \Big[ \Big(\frac {n-1}{n-k-1} \Big) \times (1-R^2) \Big] 
+" /></p>
+<ul>
+<li>Choose the model with the highest Adjusted R-Squared</li>
+</ul>
+<h3>Dummy Variable</h3>
+<ul>
+<li>Trap: always use (n-1) dummy variables to avoid multicollinearity</li>
+</ul>
+<h3>Heteroskedasticity</h3>
+<ul>
+<li>
+<p>Error term variance is non-constant</p>
+</li>
+<li>
+<p>Type 1: Unconditional Heteroskedasticity</p>
+<ul>
+<li>Not related to independent variables. cause no major problems.</li>
+</ul>
+</li>
+<li>
+<p>Type 2: Conditional Heteroskedasticity</p>
+<ul>
+<li>Related to independent variables</li>
+<li>t-stats are usually artificially high as the standard error is too small <img src="https://tex.s2cms.ru/svg/%5CRightarrow" alt="\Rightarrow" /> Type I error, incorrect rejection to a true null hypothesis</li>
+</ul>
+</li>
+<li>
+<p>Scatter Plot: residual against each independent variable and time</p>
+</li>
+<li>
+<p>Breusch-Pagan test: Regress squared residuals on X variables, test significance of resulting <img src="https://tex.s2cms.ru/svg/R%5E2" alt="R^2" />, that is if X explains a significant part of the variation in squared residuals?</p>
+<ul>
+<li>Chi-square test: <img src="https://tex.s2cms.ru/svg/BP%20%3D%20R%5E2%20%5Ctimes%20n" alt="BP = R^2 \times n" /> (with k df)</li>
+</ul>
+</li>
+</ul>
+<h4>Correcting for Heteroskedasticity</h4>
+<ul>
+<li>
+<p>Robust Standard Errors (aka white-corrected standard errors)</p>
+</li>
+<li>
+<p>Generalized least squares</p>
+</li>
+</ul>
+<h3>Serial Correlation</h3>
+<ul>
+<li>
+<p>Positive autocorrelation</p>
+</li>
+<li>
+<p>Scatter Plot</p>
+</li>
+<li>
+<p>Durbin-Waston Test:  <img src="https://tex.s2cms.ru/svg/DW%20%5Capprox%202%20(1-r)%20" alt="DW \approx 2 (1-r) " /></p>
+<ul>
+<li>
+<p>DW ranges from 0 to 4: from perfect positive correlation to negative correlation. 2 is zero correlation.</p>
+</li>
+<li>
+<p>Durbin lower and Durbin upper: from D upper to 4-D upper around 2, it is the range of low autocorrelation.</p>
+</li>
+<li>
+<p>if DW computed is &lt; $D_lower$, <img src="https://tex.s2cms.ru/svg/%5CRightarrow" alt="\Rightarrow" /> +ve serial correlation.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3>DW statistic interpretation</h3>
+<p>Need significance level, number of observations and number of independent variables.</p>
+<h3>Correcting Serial correlation</h3>
+<ul>
+<li>Perferred method:
+<ul>
+<li>
+<p>Adjust the std erros upwards using the Hansen method and recalculat t-stats</p>
+</li>
+<li>
+<p>also corrects the conditional heteroskedasticity</p>
+</li>
+<li>
+<p>Result: t-stats declines, chance of Type I error declines.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3>Multicollinearity</h3>
+<ul>
+<li>
+<p>Two of more X variables are correlated with each other</p>
+</li>
+<li>
+<p>Effects: inflates SEs, reduces t-stats, increases chance of Type II errors.</p>
+</li>
+<li>
+<p>t-stats artificially small so variables falsely look unimportant</p>
+</li>
+</ul>
+<h3>Detecting Multicollinearity</h3>
+<ul>
+<li>
+<p>Observation 1: significant F-stat but all t-stat insignificant</p>
+</li>
+<li>
+<p>Observation 2: High correlation between X variables (for k=2 cases only)</p>
+</li>
+<li>
+<p>Correction: omit one or more X variables</p>
+</li>
+</ul>
+<h3>Model specification issues</h3>
+<ul>
+<li>
+<p>Selection of explanatory variables</p>
+</li>
+<li>
+<p>Transformation of variables</p>
+</li>
+<li>
+<p>Affects reliability of inference/hypothesis tests</p>
+</li>
+</ul>
+<h3>3 types of model misspecification</h3>
+<ul>
+<li>
+<p>Functional form misspecification</p>
+<ul>
+<li>important variables omitted</li>
+<li>variables not transformed properly: usually take a log</li>
+<li>data pooled improperly</li>
+</ul>
+</li>
+<li>
+<p>Time-Series Misspecification</p>
+</li>
+<li>
+<p>X is lagged Y with serial correlation present</p>
+</li>
+<li>
+<p>Forecasting the past</p>
+</li>
+<li>
+<p>Measurement error</p>
+</li>
+<li>
+<p>Cannot use OLS with qualitative varaibles</p>
+</li>
+<li>
+<p>Methods with qualitative dependent variables:</p>
+</li>
+<li>
+<p>Probit models: estimate prob of default given X based on normal distribution</p>
+</li>
+<li>
+<p>Logit models: estimate prob of default based on logistic distribution (computationally easier than normal distribution)</p>
+</li>
+<li>
+<p>Discriminant models produces a score or ranking used to classify into categories</p>
+</li>
+</ul>
+<h3>Economic Significance</h3>
+<ul>
+<li>
+<p>Critique underlying statistical analysis:</p>
+<ul>
+<li>assumption violations</li>
+<li>model misspecifications</li>
+</ul>
+</li>
+<li>
+<p>Economic significance</p>
+</li>
+</ul>
+<h3>Keys to the exam:</h3>
+<ul>
+<li>Hypothesis testing of coefficients</li>
+<li>Predicted Y-value</li>
+<li>ANOVA table</li>
+<li>Problems in regression analysis</li>
 </ul>
